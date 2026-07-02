@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>(function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches,t=s||(p?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications — Théophile Sèdonou DOUNON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Cert card ---- */
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      display: flex;
+      flex-direction: column;
+    }
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(201,168,76,0.4);
+    }
+
+    /* Preview zone — shows the actual image/pdf thumbnail or a placeholder */
+    .cert-preview {
+      height: 180px;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A1200 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; flex-shrink: 0;
+    }
+    .cert-preview img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .cert-card:hover .cert-preview img { transform: scale(1.04); }
+
+    .cert-preview-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(201,168,76,0.6);
+    }
+    .cert-preview-placeholder svg { width: 48px; height: 48px; }
+    .cert-preview-placeholder span { font-size: 0.72rem; opacity: 0.7; text-align: center; padding: 0 1rem; }
+
+    .cert-preview-badge {
+      position: absolute; top: 0.65rem; right: 0.65rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #0A0A0A; font-size: 0.65rem; font-weight: 800;
+      padding: 0.2rem 0.55rem; border-radius: 2rem; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+
+    /* Card body */
+    .cert-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+    .cert-issuer {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.7rem; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .cert-body h3 { font-size: 0.95rem; line-height: 1.3; }
+    .cert-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.1rem; }
+    .cert-date { font-size: 0.75rem; color: var(--muted-foreground); }
+    .cert-tag {
+      background: var(--muted); color: var(--muted-foreground);
+      padding: 0.15rem 0.55rem; border-radius: 2rem; font-size: 0.68rem; font-weight: 500;
+    }
+    .cert-actions { display: flex; gap: 0.5rem; margin-top: auto; padding-top: 1rem; }
+
+    /* Category section title */
+    .cert-section-title {
+      font-size: 1.05rem; font-weight: 700;
+      margin: 2.5rem 0 1.25rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      padding-bottom: 0.5rem; border-bottom: 2px solid var(--border);
+    }
+    .cert-section-title::before {
+      content: ''; display: block; width: 4px; height: 22px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      border-radius: 2px; flex-shrink: 0;
+    }
+
+    /* Stats strip */
+    .cert-stats {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .cert-stat {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-xl); padding: 1.1rem 1.75rem;
+      text-align: center; min-width: 130px; transition: border-color 0.2s;
+    }
+    .cert-stat:hover { border-color: var(--primary); }
+    .cert-stat .num { font-family:'Poppins',sans-serif; font-size:1.8rem; font-weight:800; line-height:1; }
+    .cert-stat .label { font-size:0.72rem; color:var(--muted-foreground); margin-top:0.2rem; }
+
+    /* Upload hint box */
+    .upload-hint {
+      border: 2px dashed var(--border); border-radius: var(--radius-lg);
+      padding: 1.5rem; text-align: center; color: var(--muted-foreground);
+      font-size: 0.82rem; margin-top: 2.5rem;
+      transition: border-color 0.2s;
+    }
+    .upload-hint:hover { border-color: var(--primary); }
+    .upload-hint strong { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <section class="page-banner">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html" id="bc-home">Accueil</a> <span>/</span> <span id="bc-page">Certifications</span></p>
+      <h1 id="banner-title">Certifications &amp; <span class="text-primary">Attestations</span></h1>
+      <p id="banner-sub">Diplômes, certificats de formation et attestations de participation obtenus tout au long de mon parcours</p>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+
+      <!-- Stats -->
+      <div class="cert-stats reveal">
+        <div class="cert-stat">
+          <p class="num text-primary" id="s-cert-num">4+</p>
+          <p class="label" id="s-cert-lbl">Certificats</p>
+        </div>
+        <div class="cert-stat">
+          <p class="num text-primary" id="s-attest-num">3+</p>
+          <p class="label" id="s-attest-lbl">Attestations</p>
+        </div>
+        <div class="cert-stat">
+          <p class="num text-primary">2</p>
+          <p class="label" id="s-hack-lbl">Hackathons</p>
+        </div>
+        <div class="cert-stat">
+          <p class="num text-primary">2026</p>
+          <p class="label" id="s-year-lbl">Dernière mise à jour</p>
+        </div>
+      </div>
+
+      <!-- ===== SECTION : Formation ===== -->
+      <h2 class="cert-section-title reveal" id="sec-formation">🎓 Formation académique</h2>
+      <div class="grid grid-3 reveal">
+
+        <!-- Bac (placeholder) -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/bac.jpg" alt="Baccalauréat"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span id="ph-text">Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-bac">Diplôme</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">🏫 <span id="issuer-bac">Ministère de l'Éducation — Bénin</span></span>
+            <h3 id="title-bac">Baccalauréat</h3>
+            <div class="cert-meta">
+              <span class="cert-date" id="date-bac">2022</span>
+              <span class="cert-tag">Académique</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/bac.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-bac">Voir</a>
+              <a href="assets/certs/bac.pdf" download class="btn btn-primary btn-sm" id="dl-bac">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENSPD relevé de notes -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/releve-notes-enspd.jpg" alt="Relevé de notes ENSPD"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span>Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-enspd">Relevé</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">🎓 ENSPD — Université de Parakou</span>
+            <h3 id="title-enspd">Relevé de notes — Statistique Appliquée</h3>
+            <div class="cert-meta">
+              <span class="cert-date">2024–2026</span>
+              <span class="cert-tag">Académique</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/releve-notes-enspd.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-enspd">Voir</a>
+              <a href="assets/certs/releve-notes-enspd.pdf" download class="btn btn-primary btn-sm" id="dl-enspd">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== SECTION : Formations numériques ===== -->
+      <h2 class="cert-section-title reveal" id="sec-digital">💻 Formations numériques</h2>
+      <div class="grid grid-3 reveal">
+
+        <!-- DataCamp -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/datacamp-ml-engineer.jpg" alt="DataCamp ML Engineer"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span>Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-dc">Certificat</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">📊 DataCamp</span>
+            <h3 id="title-dc">Machine Learning Engineer Track</h3>
+            <div class="cert-meta">
+              <span class="cert-date">2025–2026</span>
+              <span class="cert-tag">Data Science</span>
+              <span class="cert-tag">ML</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/datacamp-ml-engineer.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-dc">Voir</a>
+              <a href="assets/certs/datacamp-ml-engineer.pdf" download class="btn btn-primary btn-sm" id="dl-dc">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passeport Numérique / 10 000 Codeurs -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/passeport-numerique.jpg" alt="Passeport Numérique"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span>Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-pn">Attestation</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">🇧🇯 10 000 Codeurs — Bénin</span>
+            <h3 id="title-pn">Passeport Numérique</h3>
+            <div class="cert-meta">
+              <span class="cert-date">2026</span>
+              <span class="cert-tag">Numérique</span>
+              <span class="cert-tag">Bénin</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/passeport-numerique.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-pn">Voir</a>
+              <a href="assets/certs/passeport-numerique.pdf" download class="btn btn-primary btn-sm" id="dl-pn">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Isheero -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/isheero.jpg" alt="Isheero"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span>Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-ish">Certificat</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">🧠 Isheero</span>
+            <h3 id="title-ish">Formation Data & IA</h3>
+            <div class="cert-meta">
+              <span class="cert-date">2025</span>
+              <span class="cert-tag">Data</span>
+              <span class="cert-tag">IA</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/isheero.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-ish">Voir</a>
+              <a href="assets/certs/isheero.pdf" download class="btn btn-primary btn-sm" id="dl-ish">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== SECTION : Participation & Engagement ===== -->
+      <h2 class="cert-section-title reveal" id="sec-part">🏆 Participation &amp; Engagement</h2>
+      <div class="grid grid-3 reveal">
+
+        <!-- MIABE Hackathon -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/miabe-hackathon.jpg" alt="MIABE Hackathon 2026"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span>Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-miabe">Semi-finaliste</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">🏅 MIABE Hackathon</span>
+            <h3 id="title-miabe">Attestation de participation — Semi-finaliste</h3>
+            <div class="cert-meta">
+              <span class="cert-date">2026</span>
+              <span class="cert-tag">Hackathon</span>
+              <span class="cert-tag">Équipe Luminex</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/miabe-hackathon.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-miabe">Voir</a>
+              <a href="assets/certs/miabe-hackathon.pdf" download class="btn btn-primary btn-sm" id="dl-miabe">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- UNJED -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/unjed-nomination.jpg" alt="Nomination UNJED-BÉNIN"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span>Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-unjed">Leadership</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">🌍 UNJED-BÉNIN</span>
+            <h3 id="title-unjed">Lettre de nomination — Dir. Adjoint CCC</h3>
+            <div class="cert-meta">
+              <span class="cert-date">2025–2026</span>
+              <span class="cert-tag">Leadership</span>
+              <span class="cert-tag">Engagement</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/unjed-nomination.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-unjed">Voir</a>
+              <a href="assets/certs/unjed-nomination.pdf" download class="btn btn-primary btn-sm" id="dl-unjed">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DataTour -->
+        <div class="cert-card">
+          <div class="cert-preview">
+            <img src="assets/certs/datatour-2026.jpg" alt="DataTour 2026"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="cert-preview-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+              <span>Déposez votre fichier ici<br/>(voir README)</span>
+            </div>
+            <span class="cert-preview-badge" id="badge-dt">Compétition</span>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">📊 DataTour 2026</span>
+            <h3 id="title-dt">Attestation de participation — Équipe Luminex</h3>
+            <div class="cert-meta">
+              <span class="cert-date">2026</span>
+              <span class="cert-tag">Data Science</span>
+              <span class="cert-tag">Fraude</span>
+            </div>
+            <div class="cert-actions">
+              <a href="assets/certs/datatour-2026.pdf" target="_blank" class="btn btn-outline btn-sm" id="view-dt">Voir</a>
+              <a href="assets/certs/datatour-2026.pdf" download class="btn btn-primary btn-sm" id="dl-dt">Télécharger</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hint pour ajouter des fichiers -->
+      <div class="upload-hint reveal">
+        <p>📎 <strong id="hint-strong">Pour ajouter vos certificats</strong> : <span id="hint-text">placez vos fichiers PDF ou images dans le dossier <code>assets/certs/</code> avec les noms indiqués dans le README. Les aperçus s'affichent automatiquement.</span></p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h3 id="cta-title">Vous souhaitez vérifier mes qualifications ?</h3>
+        <p id="cta-sub">N'hésitez pas à me contacter pour toute demande de vérification ou d'information complémentaire.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg" id="cta-btn">Me contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js" defer></script>
+  <script defer>
+    const P={fr:{"bc-home":"Accueil","bc-page":"Certifications","banner-title":"Certifications &amp; <span class=\"text-primary\">Attestations</span>","banner-sub":"Diplômes, certificats de formation et attestations de participation obtenus tout au long de mon parcours","s-cert-lbl":"Certificats","s-attest-lbl":"Attestations","s-hack-lbl":"Hackathons","s-year-lbl":"Dernière mise à jour","sec-formation":"🎓 Formation académique","sec-digital":"💻 Formations numériques","sec-part":"🏆 Participation & Engagement","badge-bac":"Diplôme","issuer-bac":"Ministère de l'Éducation — Bénin","title-bac":"Baccalauréat","date-bac":"2022","view-bac":"Voir","dl-bac":"Télécharger","badge-enspd":"Relevé","title-enspd":"Relevé de notes — Statistique Appliquée","view-enspd":"Voir","dl-enspd":"Télécharger","badge-dc":"Certificat","title-dc":"Machine Learning Engineer Track","view-dc":"Voir","dl-dc":"Télécharger","badge-pn":"Attestation","title-pn":"Passeport Numérique","view-pn":"Voir","dl-pn":"Télécharger","badge-ish":"Certificat","title-ish":"Formation Data & IA","view-ish":"Voir","dl-ish":"Télécharger","badge-miabe":"Semi-finaliste","title-miabe":"Attestation de participation — Semi-finaliste","view-miabe":"Voir","dl-miabe":"Télécharger","badge-unjed":"Leadership","title-unjed":"Lettre de nomination — Dir. Adjoint CCC","view-unjed":"Voir","dl-unjed":"Télécharger","badge-dt":"Compétition","title-dt":"Attestation de participation — Équipe Luminex","view-dt":"Voir","dl-dt":"Télécharger","hint-strong":"Pour ajouter vos certificats","hint-text":"placez vos fichiers PDF ou images dans le dossier assets/certs/ avec les noms indiqués dans le README. Les aperçus s'affichent automatiquement.","cta-title":"Vous souhaitez vérifier mes qualifications ?","cta-sub":"N'hésitez pas à me contacter pour toute demande de vérification ou d'information complémentaire.","cta-btn":"Me contacter"},en:{"bc-home":"Home","bc-page":"Certifications","banner-title":"Certifications &amp; <span class=\"text-primary\">Attestations</span>","banner-sub":"Degrees, training certificates and participation attestations obtained throughout my journey","s-cert-lbl":"Certificates","s-attest-lbl":"Attestations","s-hack-lbl":"Hackathons","s-year-lbl":"Last updated","sec-formation":"🎓 Academic training","sec-digital":"💻 Digital training","sec-part":"🏆 Participation & Engagement","badge-bac":"Diploma","issuer-bac":"Ministry of Education — Benin","title-bac":"Baccalaureate","date-bac":"2022","view-bac":"View","dl-bac":"Download","badge-enspd":"Transcript","title-enspd":"Academic transcript — Applied Statistics","view-enspd":"View","dl-enspd":"Download","badge-dc":"Certificate","title-dc":"Machine Learning Engineer Track","view-dc":"View","dl-dc":"Download","badge-pn":"Attestation","title-pn":"Digital Passport","view-pn":"View","dl-pn":"Download","badge-ish":"Certificate","title-ish":"Data & AI Training","view-ish":"View","dl-ish":"Download","badge-miabe":"Semi-finalist","title-miabe":"Participation attestation — Semi-finalist","view-miabe":"View","dl-miabe":"Download","badge-unjed":"Leadership","title-unjed":"Nomination letter — Deputy Director CCC","view-unjed":"View","dl-unjed":"Download","badge-dt":"Competition","title-dt":"Participation attestation — Team Luminex","view-dt":"View","dl-dt":"Download","hint-strong":"To add your certificates","hint-text":"place your PDF files or images in the assets/certs/ folder with the names shown in the README. Previews appear automatically.","cta-title":"Want to verify my qualifications?","cta-sub":"Feel free to contact me for any verification request or additional information.","cta-btn":"Contact me"}};
+    window.onLangChange=function(lang){const d=P[lang]||P.fr;Object.keys(d).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=d[id];});};
+  </script>
+</body>
+</html>

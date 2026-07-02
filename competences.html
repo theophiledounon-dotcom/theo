@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>(function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches,t=s||(p?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compétences — Théophile Sèdonou DOUNON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div id="header-placeholder"></div>
+<section class="page-banner">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html" id="bc1">Accueil</a> <span>/</span> <span id="bc2">Compétences</span></p>
+    <h1 id="bt">Mes <span class="text-primary">Compétences</span></h1>
+    <p id="bs">Technologies et expertises développées à travers projets, hackathons et formations</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 id="h1">Nuage de <span class="text-primary">compétences</span></h2>
+      <p id="h1s">Survolez chaque tag — la taille reflète le niveau de maîtrise</p>
+      <div class="divider-bar"></div>
+    </div>
+
+    <div class="card reveal" style="padding:2.5rem;">
+      <p class="tag-category" id="cat1">Développement Web</p>
+      <div class="tag-cloud">
+        <span class="tag tag-xl" title="Avancé — 92%">HTML5</span>
+        <span class="tag tag-xl" title="Avancé — 88%">CSS3</span>
+        <span class="tag tag-xl" title="Intermédiaire+ — 80%">JavaScript</span>
+        <span class="tag tag-lg" title="Intermédiaire — 72%">PHP</span>
+        <span class="tag tag-lg" title="Intermédiaire — 70%">MySQL</span>
+        <span class="tag tag-md">Flexbox & Grid</span>
+        <span class="tag tag-md">Responsive Design</span>
+        <span class="tag tag-md">Dark Mode</span>
+        <span class="tag tag-md">i18n FR/EN</span>
+        <span class="tag tag-sm">Web3Forms</span>
+        <span class="tag tag-sm">Vercel</span>
+        <span class="tag tag-sm">PWA</span>
+        <span class="tag tag-sm">Blockchain / Web3</span>
+      </div>
+
+      <p class="tag-category" id="cat2">Statistique & Data Science</p>
+      <div class="tag-cloud">
+        <span class="tag tag-xl" title="Avancé — 85%">Statistique Appliquée</span>
+        <span class="tag tag-lg" title="Intermédiaire+ — 74%">Python</span>
+        <span class="tag tag-lg" title="Intermédiaire — 72%">R</span>
+        <span class="tag tag-lg" title="Intermédiaire — 70%">Stata</span>
+        <span class="tag tag-xl" title="Intermédiaire+ — 76%">Machine Learning</span>
+        <span class="tag tag-lg">LightGBM</span>
+        <span class="tag tag-md">scikit-learn</span>
+        <span class="tag tag-md">Pandas / NumPy</span>
+        <span class="tag tag-md">Validation croisée</span>
+        <span class="tag tag-sm">Matplotlib</span>
+        <span class="tag tag-sm">Analyse descriptive</span>
+        <span class="tag tag-sm">Indices de prix</span>
+      </div>
+
+      <p class="tag-category" id="cat3">Outils & Environnement</p>
+      <div class="tag-cloud">
+        <span class="tag tag-lg">VS Code</span>
+        <span class="tag tag-lg">Jupyter Notebook</span>
+        <span class="tag tag-md">LaTeX</span>
+        <span class="tag tag-md">KoboToolbox</span>
+        <span class="tag tag-md">Power BI</span>
+        <span class="tag tag-md">Excel</span>
+        <span class="tag tag-sm">Google Workspace</span>
+        <span class="tag tag-sm">InfinityFree</span>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="card reveal" style="margin-top:1.75rem;padding:1.25rem 1.75rem;">
+      <p style="font-size:.8rem;font-weight:700;color:var(--muted-foreground);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.08em;" id="legend-title">Légende des niveaux</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;">
+        <span class="tag tag-xl" style="pointer-events:none;" id="leg1">Grand = Expert</span>
+        <span class="tag tag-lg" style="pointer-events:none;" id="leg2">Moyen = Avancé</span>
+        <span class="tag tag-md" style="pointer-events:none;" id="leg3">Normal = Intermédiaire</span>
+        <span class="tag tag-sm" style="pointer-events:none;" id="leg4">Petit = Notions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-banner reveal-scale">
+      <h3 id="cta-t">Voir ces compétences en action ?</h3>
+      <p id="cta-d">Consultez mes projets concrets réalisés avec ces technologies.</p>
+      <a href="projets.html" class="btn btn-primary btn-lg" id="cta-b">Voir mes projets</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/components.js" defer></script>
+<script defer>
+const P={fr:{"bc1":"Accueil","bc2":"Compétences","bt":"Mes <span class='text-primary'>Compétences</span>","bs":"Technologies et expertises développées à travers projets, hackathons et formations","h1":"Nuage de <span class='text-primary'>compétences</span>","h1s":"Survolez chaque tag — la taille reflète le niveau de maîtrise","cat1":"Développement Web","cat2":"Statistique & Data Science","cat3":"Outils & Environnement","legend-title":"Légende des niveaux","leg1":"Grand = Expert","leg2":"Moyen = Avancé","leg3":"Normal = Intermédiaire","leg4":"Petit = Notions","cta-t":"Voir ces compétences en action ?","cta-d":"Consultez mes projets concrets réalisés avec ces technologies.","cta-b":"Voir mes projets"},en:{"bc1":"Home","bc2":"Skills","bt":"My <span class='text-primary'>Skills</span>","bs":"Technologies and expertise developed through projects, hackathons and training","h1":"Skills <span class='text-primary'>cloud</span>","h1s":"Hover each tag — size reflects mastery level","cat1":"Web Development","cat2":"Statistics & Data Science","cat3":"Tools & Environment","legend-title":"Level legend","leg1":"Large = Expert","leg2":"Medium = Advanced","leg3":"Regular = Intermediate","leg4":"Small = Notions","cta-t":"See these skills in action?","cta-d":"Check out my real projects built with these technologies.","cta-b":"View my projects"}};
+window.onLangChange=function(lang){const d=P[lang]||P.fr;Object.keys(d).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=d[id];});};
+</script>
+</body>
+</html>

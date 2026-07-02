@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>(function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches,t=s||(p?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page non trouvée — Théophile Sèdonou DOUNON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <section class="error-page">
+    <div>
+      <div class="error-code">404</div>
+      <h2 id="err-title">Page introuvable</h2>
+      <p id="err-sub">Désolé, la page que vous recherchez n'existe pas ou a été déplacée.</p>
+      <a href="index.html" class="btn btn-primary btn-lg" id="err-btn">Retour à l'accueil</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js" defer></script>
+  <script defer>
+    const P={fr:{"err-title":"Page introuvable","err-sub":"Désolé, la page que vous recherchez n'existe pas ou a été déplacée.","err-btn":"Retour à l'accueil"},en:{"err-title":"Page not found","err-sub":"Sorry, the page you are looking for doesn't exist or has been moved.","err-btn":"Back to home"}};
+    window.onLangChange=function(lang){const d=P[lang]||P.fr;Object.keys(d).forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=d[id];});};
+  </script>
+</body>
+</html>

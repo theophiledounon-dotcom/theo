@@ -1,0 +1,5 @@
+Placez ici votre photo de profil sous le nom : photo-profil.jpg
+(format carré recommandé, minimum 400x400 px)
+
+Si ce fichier est absent, un avatar par défaut s'affiche automatiquement
+sur la page "À propos" — aucune erreur ne sera générée.

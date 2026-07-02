@@ -1,0 +1,36 @@
+====================================================
+  DOSSIER CERTIFICATS & ATTESTATIONS
+====================================================
+
+Placez ici vos fichiers PDF ou images (JPG/PNG).
+Utilisez EXACTEMENT les noms ci-dessous pour que
+les cartes affichent les aperçus automatiquement.
+
+----- Formation académique -----
+bac.pdf               → Baccalauréat (PDF)
+bac.jpg               → Aperçu image du bac (optionnel)
+releve-notes-enspd.pdf → Relevé de notes ENSPD
+releve-notes-enspd.jpg → Aperçu image (optionnel)
+
+----- Formations numériques -----
+datacamp-ml-engineer.pdf  → Certificat DataCamp ML Engineer
+datacamp-ml-engineer.jpg  → Aperçu image (optionnel)
+passeport-numerique.pdf   → Attestation Passeport Numérique
+passeport-numerique.jpg   → Aperçu image (optionnel)
+isheero.pdf               → Certificat Isheero
+isheero.jpg               → Aperçu image (optionnel)
+
+----- Participation & Engagement -----
+miabe-hackathon.pdf   → Attestation MIABE Hackathon 2026
+miabe-hackathon.jpg   → Aperçu image (optionnel)
+unjed-nomination.pdf  → Lettre de nomination UNJED-BÉNIN
+unjed-nomination.jpg  → Aperçu image (optionnel)
+datatour-2026.pdf     → Attestation DataTour 2026
+datatour-2026.jpg     → Aperçu image (optionnel)
+
+====================================================
+ASTUCE : Si vous n'avez que le PDF, le bouton 
+"Voir" ouvrira le PDF directement dans le navigateur.
+L'image (.jpg) n'est utile que pour l'aperçu visuel
+sur la carte. Sans elle, un placeholder doré s'affiche.
+====================================================

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>(function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches,t=s||(p?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos — Théophile Sèdonou DOUNON</title>
+  <meta name="description" content="Découvrez le parcours, la vision et les ambitions de Théophile Sèdonou DOUNON." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <section class="page-banner">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html" id="bc-home">Accueil</a> <span>/</span> <span id="bc-page">À propos</span></p>
+      <h1 id="banner-title">À propos de <span class="text-primary">moi</span></h1>
+      <p id="banner-sub">Mon parcours, mes valeurs et l'ambition qui guide mon engagement pour la donnée et le numérique</p>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+
+      <div class="profile-row reveal">
+        <div class="profile-photo-wrap">
+          <img src="assets/photo-profil.jpg" alt="Théophile Sèdonou DOUNON" class="profile-photo" id="profile-photo"
+            onerror="this.style.display='none';document.getElementById('profile-ph').style.display='flex';" />
+          <div class="profile-photo-placeholder" id="profile-ph" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4"/><circle cx="12" cy="7" r="4"/></svg>
+            <span id="photo-placeholder-text">Photo à venir</span>
+          </div>
+        </div>
+        <div class="profile-name">
+          <h2>Théophile Sèdonou <span class="text-primary">DOUNON</span></h2>
+          <p id="profile-sub">Statisticien · Développeur Web · Leader UNJED-BÉNIN</p>
+        </div>
+      </div>
+
+      <div class="grid about-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+
+        <div class="reveal">
+          <h3 id="who-title">Qui suis-je ?</h3>
+          <p class="lead" style="margin-top:1rem; color:var(--muted-foreground); line-height:1.8;" id="bio-p1">
+            Passionné par la donnée, le web et le développement de l'Afrique, je suis étudiant en Statistique Appliquée à l'ENSPD (Université de Parakou, Bénin) et développeur web freelance. Mon parcours mêle rigueur analytique et créativité numérique.
+          </p>
+          <p class="lead" style="margin-top:1rem; color:var(--muted-foreground); line-height:1.8;" id="bio-p2">
+            De la modélisation de fraudes financières avec LightGBM au développement d'applications blockchain, en passant par la création de sites institutionnels, je construis des solutions à impact réel. Mon ambition à long terme : contribuer, grâce à l'Intelligence Artificielle, au développement durable de l'Afrique dans les domaines de l'agriculture et de la finance.
+          </p>
+
+          <div class="about-points" style="margin-top:1.75rem;">
+            <div class="point-item">
+              <div class="point-icon" style="background:var(--primary);">✓</div>
+              <div>
+                <h4 id="pt1-title">Expertise Statistique & Data</h4>
+                <p id="pt1-desc">Analyse descriptive, machine learning, LightGBM, scikit-learn</p>
+              </div>
+            </div>
+            <div class="point-item">
+              <div class="point-icon" style="background:var(--primary);">✓</div>
+              <div>
+                <h4 id="pt2-title">Développement Web</h4>
+                <p id="pt2-desc">HTML, CSS, JavaScript, PHP, MySQL — sites multi-pages déployés</p>
+              </div>
+            </div>
+            <div class="point-item">
+              <div class="point-icon" style="background:var(--primary);">✓</div>
+              <div>
+                <h4 id="pt3-title">Leadership & Engagement</h4>
+                <p id="pt3-desc">Directeur Adjoint CCC et Secrétaire au Conseil Consultatif, UNJED-BÉNIN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="vision-box">
+            <h3 id="vision-title">Ma Vision</h3>
+            <p id="vision-text">« Mon ambition est de devenir un expert capable d'utiliser l'Intelligence Artificielle et les données pour contribuer au développement durable du Bénin et de l'Afrique, notamment dans les domaines de l'agriculture et de la finance. »</p>
+          </div>
+
+          <div class="quote-box" style="margin-top:1.25rem;">
+            <p id="quote-text">« Le code et la donnée ne sont pas une fin en soi — ils sont les outils d'un développement plus juste, plus intelligent, plus africain. »</p>
+          </div>
+
+          <div class="mini-stats" style="margin-top:1.25rem;">
+            <div class="mini-stat">
+              <p class="num text-primary">3+</p>
+              <p class="label" id="ms1">Projets livrés</p>
+            </div>
+            <div class="mini-stat">
+              <p class="num text-primary">2</p>
+              <p class="label" id="ms2">Hackathons</p>
+            </div>
+            <div class="mini-stat">
+              <p class="num text-primary">5+</p>
+              <p class="label" id="ms3">Langages</p>
+            </div>
+            <div class="mini-stat">
+              <p class="num text-primary">ENSPD</p>
+              <p class="label" id="ms4">École</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h3 id="cta-title">Curieux de voir mes compétences ?</h3>
+        <p id="cta-sub">Découvrez les outils et technologies que j'ai appris à maîtriser tout au long de mon parcours.</p>
+        <a href="competences.html" class="btn btn-primary btn-lg" id="cta-btn">Voir mes compétences</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js" defer></script>
+  <script defer>
+    const P = {
+      fr: {
+        "bc-home":"Accueil","bc-page":"À propos",
+        "banner-title":"À propos de <span class=\"text-primary\">moi</span>",
+        "banner-sub":"Mon parcours, mes valeurs et l'ambition qui guide mon engagement pour la donnée et le numérique",
+        "photo-placeholder-text":"Photo à venir",
+        "profile-sub":"Statisticien · Développeur Web · Leader UNJED-BÉNIN",
+        "who-title":"Qui suis-je ?",
+        "bio-p1":"Passionné par la donnée, le web et le développement de l'Afrique, je suis étudiant en Statistique Appliquée à l'ENSPD (Université de Parakou, Bénin) et développeur web freelance. Mon parcours mêle rigueur analytique et créativité numérique.",
+        "bio-p2":"De la modélisation de fraudes financières avec LightGBM au développement d'applications blockchain, en passant par la création de sites institutionnels, je construis des solutions à impact réel. Mon ambition à long terme : contribuer, grâce à l'Intelligence Artificielle, au développement durable de l'Afrique dans les domaines de l'agriculture et de la finance.",
+        "pt1-title":"Expertise Statistique & Data","pt1-desc":"Analyse descriptive, machine learning, LightGBM, scikit-learn",
+        "pt2-title":"Développement Web","pt2-desc":"HTML, CSS, JavaScript, PHP, MySQL — sites multi-pages déployés",
+        "pt3-title":"Leadership & Engagement","pt3-desc":"Directeur Adjoint CCC et Secrétaire au Conseil Consultatif, UNJED-BÉNIN",
+        "vision-title":"Ma Vision",
+        "vision-text":"« Mon ambition est de devenir un expert capable d'utiliser l'Intelligence Artificielle et les données pour contribuer au développement durable du Bénin et de l'Afrique, notamment dans les domaines de l'agriculture et de la finance. »",
+        "quote-text":"« Le code et la donnée ne sont pas une fin en soi — ils sont les outils d'un développement plus juste, plus intelligent, plus africain. »",
+        "ms1":"Projets livrés","ms2":"Hackathons","ms3":"Langages","ms4":"École",
+        "cta-title":"Curieux de voir mes compétences ?","cta-sub":"Découvrez les outils et technologies que j'ai appris à maîtriser tout au long de mon parcours.","cta-btn":"Voir mes compétences",
+      },
+      en: {
+        "bc-home":"Home","bc-page":"About",
+        "banner-title":"About <span class=\"text-primary\">me</span>",
+        "banner-sub":"My journey, values and the ambition that drives my commitment to data and technology",
+        "photo-placeholder-text":"Photo coming soon",
+        "profile-sub":"Statistician · Web Developer · UNJED-BÉNIN Leader",
+        "who-title":"Who am I?",
+        "bio-p1":"Driven by data, the web and Africa's development, I am an Applied Statistics student at ENSPD (University of Parakou, Benin) and a freelance web developer. My journey blends analytical rigor with digital creativity.",
+        "bio-p2":"From modeling financial fraud with LightGBM to building blockchain applications and institutional websites, I build solutions with real impact. My long-term ambition: to leverage Artificial Intelligence for Africa's sustainable development in agriculture and finance.",
+        "pt1-title":"Statistics & Data Expertise","pt1-desc":"Descriptive analysis, machine learning, LightGBM, scikit-learn",
+        "pt2-title":"Web Development","pt2-desc":"HTML, CSS, JavaScript, PHP, MySQL — deployed multi-page websites",
+        "pt3-title":"Leadership & Engagement","pt3-desc":"Deputy Director CCC and Secretary of Consultative Council, UNJED-BÉNIN",
+        "vision-title":"My Vision",
+        "vision-text":"\"My ambition is to become an expert capable of using Artificial Intelligence and data to contribute to the sustainable development of Benin and Africa, particularly in agriculture and finance.\"",
+        "quote-text":"\"Code and data are not ends in themselves — they are tools for a fairer, smarter, more African development.\"",
+        "ms1":"Projects delivered","ms2":"Hackathons","ms3":"Languages","ms4":"School",
+        "cta-title":"Curious about my skills?","cta-sub":"Discover the tools and technologies I've learned throughout my journey.","cta-btn":"View my skills",
+      }
+    };
+    window.onLangChange = function(lang) {
+      const d = P[lang]||P.fr;
+      Object.keys(d).forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=d[id];});
+    };
+  </script>
+</body>
+</html>
